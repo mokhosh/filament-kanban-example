@@ -26,6 +26,7 @@ class User extends Authenticatable implements Sortable
         'email',
         'password',
         'status',
+        'role',
     ];
 
     /**
