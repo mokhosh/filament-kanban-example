@@ -9,10 +9,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Sortable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SortableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -46,4 +48,13 @@ class User extends Authenticatable
         'password' => 'hashed',
         'status' => UserStatus::class,
     ];
+
+    public static function ignoreTimestamps($should = true)
+    {
+        if ($should) {
+            static::$ignoreTimestampsOn = array_values(array_merge(static::$ignoreTimestampsOn, [static::class]));
+        } else {
+            static::$ignoreTimestampsOn = array_values(array_diff(static::$ignoreTimestampsOn, [static::class]));
+        }
+    }
 }

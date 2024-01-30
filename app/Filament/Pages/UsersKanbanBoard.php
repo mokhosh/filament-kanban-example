@@ -18,17 +18,21 @@ class UsersKanbanBoard extends KanbanBoard
 
     protected function records(): Collection
     {
-        return User::latest('updated_at')->get();
+        return User::ordered()->get();
     }
 
     public function onStatusChanged(int $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
     {
         User::find($recordId)->update(['status' => $status]);
-        // Model::setNewOrder($toOrderedIds);
+        User::ignoreTimestamps();
+        User::setNewOrder($toOrderedIds);
+        User::ignoreTimestamps(false);
     }
 
     public function onSortChanged(int $recordId, string $status, array $orderedIds): void
     {
-        // Model::setNewOrder($orderedIds);
+        User::ignoreTimestamps();
+        User::setNewOrder($orderedIds);
+        User::ignoreTimestamps(false);
     }
 }
