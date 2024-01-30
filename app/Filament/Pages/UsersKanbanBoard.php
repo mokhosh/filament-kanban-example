@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Enums\UserStatus;
 use App\Models\User;
 use Illuminate\Support\Collection;
 use Mokhosh\FilamentKanban\Pages\KanbanBoard;
@@ -12,17 +13,7 @@ class UsersKanbanBoard extends KanbanBoard
 
     protected function statuses(): Collection
     {
-        // return StatusEnum::statuses();
-        return collect([
-            [
-                'id' => 'pending',
-                'title' => 'Pending',
-            ],
-            [
-                'id' => 'active',
-                'title' => 'Active',
-            ],
-        ]);
+        return UserStatus::statuses();
     }
 
     protected function records(): Collection
