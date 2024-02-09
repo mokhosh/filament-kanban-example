@@ -13,28 +13,7 @@ class UsersKanbanBoard extends KanbanBoard
 
     protected static string $recordTitleAttribute = 'name';
 
-    protected function statuses(): Collection
-    {
-        return UserStatus::statuses();
-    }
+    protected static string $model = User::class;
 
-    protected function records(): Collection
-    {
-        return User::ordered()->get();
-    }
-
-    public function onStatusChanged(int $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
-    {
-        User::find($recordId)->update(['status' => $status]);
-        User::ignoreTimestamps();
-        User::setNewOrder($toOrderedIds);
-        User::ignoreTimestamps(false);
-    }
-
-    public function onSortChanged(int $recordId, string $status, array $orderedIds): void
-    {
-        User::ignoreTimestamps();
-        User::setNewOrder($orderedIds);
-        User::ignoreTimestamps(false);
-    }
+    protected static string $statusEnum = UserStatus::class;
 }
