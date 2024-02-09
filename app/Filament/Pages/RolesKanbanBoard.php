@@ -20,10 +20,7 @@ class RolesKanbanBoard extends KanbanBoard
 
     protected static string $recordStatusAttribute = 'role';
 
-    protected function statuses(): Collection
-    {
-        return UserRole::statuses();
-    }
+    protected static string $statusEnum = UserRole::class;
 
     protected function records(): Collection
     {
@@ -33,15 +30,6 @@ class RolesKanbanBoard extends KanbanBoard
     public function onStatusChanged(int $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
     {
         User::find($recordId)->update(['role' => $status]);
-        User::ignoreTimestamps();
         User::setNewOrder($toOrderedIds);
-        User::ignoreTimestamps(false);
-    }
-
-    public function onSortChanged(int $recordId, string $status, array $orderedIds): void
-    {
-        User::ignoreTimestamps();
-        User::setNewOrder($orderedIds);
-        User::ignoreTimestamps(false);
     }
 }
