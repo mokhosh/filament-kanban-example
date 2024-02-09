@@ -11,10 +11,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
+use Mokhosh\FilamentKanban\Concerns\HasRecentUpdateIndication;
 
 class User extends Authenticatable implements Sortable
 {
-    use HasApiTokens, HasFactory, Notifiable, SortableTrait;
+    use HasApiTokens, HasFactory, Notifiable, SortableTrait, HasRecentUpdateIndication;
 
     /**
      * The attributes that are mass assignable.
