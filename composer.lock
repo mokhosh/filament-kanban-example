@@ -3458,16 +3458,16 @@
         },
         {
             "name": "mokhosh/filament-kanban",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mokhosh/filament-kanban.git",
-                "reference": "60a38cb8dbcdc9a6d4b7f9d6a1226b9717b961c3"
+                "reference": "9cf4131a9f051d88dd94b6fc31e7ad1d567bf915"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mokhosh/filament-kanban/zipball/60a38cb8dbcdc9a6d4b7f9d6a1226b9717b961c3",
-                "reference": "60a38cb8dbcdc9a6d4b7f9d6a1226b9717b961c3",
+                "url": "https://api.github.com/repos/mokhosh/filament-kanban/zipball/9cf4131a9f051d88dd94b6fc31e7ad1d567bf915",
+                "reference": "9cf4131a9f051d88dd94b6fc31e7ad1d567bf915",
                 "shasum": ""
             },
             "require": {
@@ -3479,15 +3479,11 @@
             "require-dev": {
                 "laravel/pint": "^1.0",
                 "nunomaduro/collision": "^7.9",
-                "nunomaduro/larastan": "^2.0.1",
                 "orchestra/testbench": "^8.0",
                 "pestphp/pest": "^2.0",
                 "pestphp/pest-plugin-arch": "^2.0",
                 "pestphp/pest-plugin-laravel": "^2.0",
                 "pestphp/pest-plugin-livewire": "^2.1",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0",
                 "spatie/eloquent-sortable": "^4.1"
             },
             "type": "library",
@@ -3535,7 +3531,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-09T16:33:42+00:00"
+            "time": "2024-02-09T18:15:59+00:00"
         },
         {
             "name": "monolog/monolog",
