@@ -20,7 +20,7 @@ return new class extends Migration
             $table->dateTime('due_date');
             $table->tinyInteger('progress')->default(0);
             $table->string('status')->default('todo');
-            $table->string('order_column');
+            $table->integer('order_column');
             $table->timestamps();
         });
 
